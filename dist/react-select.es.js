@@ -1750,6 +1750,7 @@ var Select$1 = function (_React$Component) {
 							id: this.props.toolTipId,
 							"aria-haspopup": "true",
 							delayShow: this.props.toolTipDelay,
+							disable: !this.props.toolTipDesc,
 							role: "tooltip"
 						},
 						this.props.toolTipDesc
@@ -1841,10 +1842,10 @@ Select$1.propTypes = {
 	valueRenderer: PropTypes.func, // valueRenderer: function (option) {}
 	wrapperStyle: PropTypes.object, // optional style to apply to the component wrapper
 	toolTipDesc: PropTypes.any, // optional create a tooltip wrapper
-	toolTipId: "", // optional required to map tooltip with relative container
-	tooltipContainerClass: "", // optional to style tooltip
-	toolTipPosition: "bottom", // optional position tooltip
-	toolTipDelay: 750 // optional delay time to show tooltip on hovering
+	toolTipId: PropTypes.string, // optional required to map tooltip with relative container
+	tooltipContainerClass: PropTypes.string, // optional to style tooltip
+	toolTipPosition: PropTypes.string, // optional position tooltip
+	toolTipDelay: PropTypes.number // optional delay time to show tooltip on hovering
 };
 
 Select$1.defaultProps = {
@@ -1889,7 +1890,7 @@ Select$1.defaultProps = {
 	tabSelectsValue: true,
 	valueComponent: Value,
 	valueKey: "value",
-	toolTipDesc: "",
+	toolTipDesc: null,
 	toolTipId: "",
 	tooltipContainerClass: "",
 	toolTipPosition: "bottom",
