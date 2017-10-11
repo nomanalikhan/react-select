@@ -1124,9 +1124,6 @@ class Select extends React.Component {
 				</span>
 			);
 		}
-		
-		console.log("tooltip :", this.props.toolTip);
-		const ToolTip = this.props.toolTip;
 
 		return (
 			<div
@@ -1157,12 +1154,12 @@ class Select extends React.Component {
           </div>
 
           <ReactTooltip
-            place={this.props.toolTipPosition || "bottom"}
+            place={this.props.toolTipPosition}
             className={this.props.toolTipContainerClass}
             data-border="true"
             id={this.props.toolTipId}
             aria-haspopup="true"
-            delayShow={this.props.toolTipDelay || 750}
+            delayShow={this.props.toolTipDelay}
             role="tooltip"
           >
             {this.props.toolTipDesc}
@@ -1260,7 +1257,11 @@ Select.propTypes = {
 	valueKey: PropTypes.string, // path of the label value in option objects
 	valueRenderer: PropTypes.func, // valueRenderer: function (option) {}
 	wrapperStyle: PropTypes.object, // optional style to apply to the component wrapper
-	toolTip: PropTypes.any // optional create a tooltip wrapper
+	toolTipDesc: PropTypes.any, // optional create a tooltip wrapper
+	toolTipId: "", // optional required to map tooltip with relative container
+	tooltipContainerClass: "", // optional to style tooltip
+	toolTipPosition: "bottom", // optional position tooltip
+	toolTipDelay: 750 // optional delay time to show tooltip on hovering
 };
 
 Select.defaultProps = {
@@ -1305,7 +1306,11 @@ Select.defaultProps = {
 	tabSelectsValue: true,
 	valueComponent: Value,
 	valueKey: "value",
-	toolTip: "",
+	toolTipDesc: "",
+	toolTipId: "",
+	tooltipContainerClass: "",
+	toolTipPosition: "bottom",
+	toolTipDelay: 750
 };
 
 export default Select;
